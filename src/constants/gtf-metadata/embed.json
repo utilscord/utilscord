@@ -1,0 +1,62 @@
+{
+    "starting": {
+        "title": "Guess The Flag!",
+        "description": "Guess the flag of this country! You have {timestamp}",
+        "image": "{flag-image-url}",
+        "thumbnail": "",
+        "author": {
+            "name": "{author}",
+            "iconURL": "{author-avatar}",
+            "url": ""
+        },
+        "footer": {
+            "name": "©️ Utilscord Development",
+            "iconURL": ""
+        }
+    },
+    "won": {
+        "title": "Guess The Flag!",
+        "description": "Congratulations {author}! You successfully guessed the country of this flag!",
+        "image": "{flag-image-url}",
+        "thumbnail": "",
+        "author": {
+            "name": "{author}",
+            "iconURL": "{author-avatar}",
+            "url": ""
+        },
+        "footer": {
+            "name": "©️ Utilscord Development",
+            "iconURL": ""
+        }
+    },
+    "lost": {
+        "title": "Guess The Flag!",
+        "description": "Wrong {author}! The country of the flag is {country}",
+        "image": "{flag-image-url}",
+        "thumbnail": "",
+        "author": {
+            "name": "{author}",
+            "iconURL": "{author-avatar}",
+            "url": ""
+        },
+        "footer": {
+            "name": "©️ Utilscord Development",
+            "iconURL": ""
+        }
+    },
+    "timeout": {
+        "title": "Guess The Flag!",
+        "description": "Sorry {user}, you did not guess the flag in time. Please try again later.",
+        "image": "{flag-image-url}",
+        "thumbnail": "",
+        "author": {
+            "name": "{author}",
+            "iconURL": "{author-avatar}",
+            "url": ""
+        },
+        "footer": {
+            "name": "©️ Utilscord Development",
+            "iconURL": ""
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "utilscord",
+  "version": "0.0.1",
+  "description": "⚒️  Utilscord. An easy-to-use and beginner friendly library that simplifies the process of bot development.",
+  "main": "index.js",
+  "repository": "https://github.com/utilscord/utilscord.git",
+  "author": "retro_ig",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "discord.js": "^14.7.1"
+  }
+}
