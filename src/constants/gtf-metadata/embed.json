@@ -10,8 +10,7 @@
             "url": ""
         },
         "footer": {
-            "name": "©️ Utilscord Development",
-            "iconURL": ""
+            "text": "©️ Utilscord Development"
         }
     },
     "won": {
@@ -25,8 +24,7 @@
             "url": ""
         },
         "footer": {
-            "name": "©️ Utilscord Development",
-            "iconURL": ""
+            "text": "©️ Utilscord Development"
         }
     },
     "lost": {
@@ -40,13 +38,12 @@
             "url": ""
         },
         "footer": {
-            "name": "©️ Utilscord Development",
-            "iconURL": ""
+            "text": "©️ Utilscord Development"
         }
     },
     "timeout": {
         "title": "Guess The Flag!",
-        "description": "Sorry {user}, you did not guess the flag in time. Please try again later.",
+        "description": "Sorry {author}, you did not guess the flag in time. Please try again later.",
         "image": "{flag-image-url}",
         "thumbnail": "",
         "author": {
@@ -55,8 +52,7 @@
             "url": ""
         },
         "footer": {
-            "name": "©️ Utilscord Development",
-            "iconURL": ""
+            "text": "©️ Utilscord Development"
         }
     }
 }
