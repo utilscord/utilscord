@@ -13,7 +13,7 @@ class GuessTheFlag extends EventEmitter {
         if(!embedData?.starting) this.embeds.starting = embeds.starting
         if(!embedData?.won) this.embeds.won = embeds.won
         if(!embedData?.lost) this.embeds.lost = embeds.lost
-        if(!embedData?.timeout) this.embeds.timeout = embeds.timeout
+        if(!embedData?.idle) this.embeds.idle = embeds.idle
 
         this.isSlashCommand = options?.isSlashCommand || false
 
@@ -46,11 +46,12 @@ class GuessTheFlag extends EventEmitter {
         .setImage(String(startingEmbed.image).replace(/{flag-image-url}/g, this.randomCountry.image))
         .setAuthor({ name: `${String(startingEmbed.author.name).replace(/{author}/g, this.author.username)}`, iconURL: `${String(startingEmbed.author.iconURL).replace(/{author-avatar}/g, this.author.displayAvatarURL())}` })
         .setFooter(startingEmbed.footer)
+        .setColor(startingEmbed.color)
 
         if(startingEmbed.thumbnail)
             embed.setThumbnail(startingEmbed.thumbnail)
 
-        this.message.reply({ embeds: [embed] })
+        const message = this.message.reply({ embeds: [embed], fetchReply: true })
 
         const filter = m => m.author.id === this.author.id
 
@@ -79,6 +80,7 @@ class GuessTheFlag extends EventEmitter {
         .setDescription(String(this.embeds.won.description).replace(/{author}/g, this.author.username))
         .setImage(String(this.embeds.won.image).replace(/{flag-image-url}/g, this.randomCountry.image))
         .setFooter(this.embeds.won.footer)
+        .setColor(this.embeds.won.color)
 
         try {
             embed.setAuthor({ name: `${String(this.embeds.won.author.name).replace(/{author}/g, this.author.username)}`, iconURL: `${String(this.embeds.won.author.iconURL).replace(/{author-avatar}/g, this.author.displayAvatarURL())}` })
@@ -97,6 +99,7 @@ class GuessTheFlag extends EventEmitter {
         .setImage(String(this.embeds.lost.image).replace(/{flag-image-url}/g, this.randomCountry.image))
         .setAuthor({ name: `${String(this.embeds.lost.author.name).replace(/{author}/g, this.author.username)}`, iconURL: `${String(this.embeds.lost.author.iconURL).replace(/{author-avatar}/g, this.author.displayAvatarURL())}` })
         .setFooter(this.embeds.lost.footer)
+        .setColor(this.embeds.lost.color)
 
         if(this.embeds.lost.thumbnail) 
             embed.setThumbnail(this.embeds.lost.thumbnail)
@@ -110,6 +113,7 @@ class GuessTheFlag extends EventEmitter {
         .setDescription(String(this.embeds.idle.description).replace(/{author}/g, this.author.username).replace(/{country}/g, this.randomCountry.name))
         .setImage(String(this.embeds.idle.image).replace(/{flag-image-url}/g, this.randomCountry.image))
         .setAuthor({ name: `${String(this.embeds.idle.author.name).replace(/{author}/g, this.author.username)}`, iconURL: `${String(this.embeds.idle.author.iconURL).replace(/{author-avatar}/g, this.author.displayAvatarURL())}` })
+        .setColor(this.embeds.idle.color)
         .setFooter(this.embeds.idle.author.footer)
 
         if(this.embeds.idle.thumbnail) 
@@ -123,7 +127,9 @@ class GuessTheFlag extends EventEmitter {
         return country
     }
 
-    set country({ name, image }) {
+    set country(val) {
+        if(typeof val != 'object') throw new TypeError(`[ Utilscord Error ] The val to set must be an object. Got ${typeof val} instead!`)
+        const { name, image } = val
         this.randomCountry = {
             name: name,
             image: image
